@@ -9,7 +9,7 @@ include("estimator.jl")
 include("updating.jl")
 include("ProblemSetup.jl")
 
-function aSass(ProblemName, L, Gamma)
+function SQPEq(ProblemName, L, Gamma)
     setup = ProblemSetup(
         ProblemName = ProblemName,
         L = L,
