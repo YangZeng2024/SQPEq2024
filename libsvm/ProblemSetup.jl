@@ -99,6 +99,8 @@ Base.@kwdef struct ProblemSetup
     n::Int = length(X_matrix[1, :])
     x_1::Vector{Float64} = generate_x0(n)
     H::Matrix{Float64} = Matrix(I, n, n)
+    random_vector_1::Vector{Float64} = rand(1: N, batch_1)
+    random_vector_2::Vector{Float64} = rand(1: 1000, batch_2)
 
     # Algorithmic parameters
     tau_0::Float64 = 1.0
