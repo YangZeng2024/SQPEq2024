@@ -239,7 +239,7 @@ function cal_alpha(d_k, eta, beta, ksi, tau, L, Gamma, theta, Grad, Cons)
     return alpha_k  
 end
 
-function aSass(file_path, epsilon_J, Seed, L_)
+function SQPEq(file_path, epsilon_J, Seed, L_)
 
     Random.seed!(Seed)
     X_matrix, y = load_libsvm_data_as_matrix(file_path)
@@ -421,5 +421,6 @@ function aSass(file_path, epsilon_J, Seed, L_)
     return KKT_min, Con_min, elapsed_time
  
 end
+
 
 
