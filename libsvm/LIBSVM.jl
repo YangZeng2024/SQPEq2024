@@ -422,34 +422,4 @@ function aSass(file_path, epsilon_J, Seed, L_)
  
 end
 
-using DelimitedFiles
-epsilon = 1e-4
-Seed = [42, 43, 44, 45]
-problem = readdlm("libsvmproblemaSass.txt")
-KKT_c = []
-Con_c = []
-times_c = []
-r = []
-for q in 1: 4
-    for j in 1: 5
-        try
-            results = aSass("$(problem[j, 1]).txt", 1e-4, Seed[q], problem[j, 2])
-            push!(r, results)
-            if length(results) == 3
-                push!(KKT_c, max(1e-10, results[1]))
-                push!(Con_c, max(1e-10, results[2])) 
-                push!(times_c, results[3])  
-            end
-        catch e
-            push!(r, "Error while solving $(problem[j, 1]): $e")
-        end
-    end
-    writedlm("aSass_zreport_$(epsilon).txt", r, '\n')
-    writedlm("aSass_zKKT_$(epsilon).txt", KKT_c, '\n')
-    writedlm("aSass_zCon_$(epsilon).txt", Con_c, '\n')
-    writedlm("aSass_ztime_$(epsilon).txt", times_c, '\n')
-end
-KKT_c = []
-Con_c = []       
-times_c = []
-r = []
+
