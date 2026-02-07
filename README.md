@@ -20,7 +20,7 @@ If you would like to test your own problem instances, please modify:
  and the estimator-related parameters in ”ProblemSetup.jl“.
 
 Modifying algorithm parameters:
-Other input parameters and algorithm settings can be configured in:
+Other input parameters and algorithm settings can be configured in
  "ProblemSetup.jl".
 
 Testing on LIBSVM problems:
