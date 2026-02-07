@@ -9,21 +9,25 @@ This code is used to evaluate the performance of the proposed algorithm on CUTEs
 Usage
 
 Testing on CUTEst problems
+
 To run experiments on CUTEst problems, execute “main.jl”.
 For example, run the following command directly in the terminal:
  SQPEq("BT10", 1, 14).
 
 Testing on your own problems
+
 If you would like to test your own problem instances, please modify:
  ”estimator.jl“,
  the relevant code in ”main.jl“,
  the estimator-related parameters in ”ProblemSetup.jl“.
 
 Modifying algorithm parameters
+
 Other input parameters and algorithm settings can be configured in:
  "ProblemSetup.jl".
 
 Testing on LIBSVM problems
+
 To run experiments on LIBSVM datasets, execute "LIBSVM.jl".
 For example:
  SQPEq("a9a.txt", 1e-4, 41, 500).
