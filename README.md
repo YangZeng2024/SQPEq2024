@@ -29,6 +29,7 @@ For example:
  SQPEq("a9a.txt", 1e-4, 41, 500).
 
 Notes
+
 Please make sure that the required dependencies for CUTEst and LIBSVM are properly installed and configured before running the experiments.
 The numerical results reported in the paper are generated based on this implementation.
   
