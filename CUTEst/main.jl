@@ -48,9 +48,9 @@ function SQPEq(ProblemName, L, Gamma)
         Grad_deterministic = g(Nlp, x[end])
         Cons_deterministic = C(Nlp, x[end], m)
 
-        Jac = J_rv(Jac_deterministic, m, n, epsilon_J)
-        Cons = c_rv(Cons_deterministic, m, epsilon_c)
-        Grad = g_rv(Grad_deterministic, n, epsilon_g)
+        Jac = J_rv(Jac_deterministic, m, n, epsilon_J, beta)
+        Cons = c_rv(Cons_deterministic, m, epsilon_c, beta)
+        Grad = g_rv(Grad_deterministic, n, epsilon_g, beta)
 
         solution = cal_d_and_y(H, m, Jac, Grad, Cons)
         d_k = solution[1:n]
