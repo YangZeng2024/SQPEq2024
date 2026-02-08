@@ -40,30 +40,30 @@ function J(Nlp, x, m, n) #calculate J_scale
 
 end
 
-function g_rv(Grad_deterministic, n, epsilon_g)
+function g_rv(Grad_deterministic, n, epsilon_g, beta)
 
     mu = Grad_deterministic
-    Sigma = Matrix(I,n,n) * (epsilon_g / n)
+    Sigma = Matrix(I,n,n) * (epsilon_g * beta^2 / n)
     d = MvNormal(mu, Sigma)
     return rand(d)
 
 end
 
-function c_rv(Cons_deterministic, m, epsilon_c)
+function c_rv(Cons_deterministic, m, epsilon_c, beta)
     
     mu = Cons_deterministic
-    Sigma = Matrix(I, m, m) * (epsilon_c / m)
+    Sigma = Matrix(I, m, m) * (epsilon_c * beta^2 / m)
     d = MvNormal(mu, Sigma)
     return rand(d)
 
 end
 
-function J_rv(Jac_deterministic, m, n, epsilon_J)
+function J_rv(Jac_deterministic, m, n, epsilon_J, beta)
     
     Jr = zeros(m, n)
     for i in 1: m
         mu = Jac_deterministic[i, :]
-        Sigma = Matrix(I, n, n) * (epsilon_J / n)
+        Sigma = Matrix(I, n, n) * (epsilon_J * beta^2 / (n * m))
         d = MvNormal(mu, Sigma)
         Jr[i, :] = rand(d)
     end
